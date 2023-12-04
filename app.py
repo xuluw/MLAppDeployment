@@ -6,6 +6,7 @@ import pandas as pd
 import plotly.express as px
 from streamlit_extras.add_vertical_space import add_vertical_space
 from st_aggrid import AgGrid
+# import zipfile
 
 from pathlib import Path
 path = Path(__file__).parent
@@ -119,6 +120,13 @@ model_select = st.radio(
         options=["Stacked", "Logistic", "GradientBoost", "SVM", "RandomForest","AdaBoost"],
     )
 
+
+# # open zipped dataset to read pickle models
+# with zipfile.ZipFile(path/"saved_models") as z:
+#    with z.open(f"saved_models/{model_select}PickleDrinking.pkl", 'rb') as file:
+#        pickle_drink_model = pickle.load(file)
+#    with z.open(f"saved_models/{model_select}PickleSmoking.pkl", 'rb') as file:
+#        pickle_smoke_model = pickle.load(file)
 
 # with open (f"./saved_models/{model_select}PickleDrinking.pkl", 'rb') as file:
 with open (path/f"saved_models/{model_select}PickleDrinking.pkl", 'rb') as file:
